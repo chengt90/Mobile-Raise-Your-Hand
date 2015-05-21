@@ -53,7 +53,7 @@ var SceneRenderer = React.createClass({
 
 });
 
-var Handsy = React.createClass({
+var QueUp = React.createClass({
 
   render: function () {
     return (
@@ -67,4 +67,4 @@ var Handsy = React.createClass({
 });
 
 
-AppRegistry.registerComponent('Handsy', () => Handsy);
+AppRegistry.registerComponent('QueUp', () => QueUp);
