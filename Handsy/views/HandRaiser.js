@@ -9,15 +9,48 @@ var {
 
 var HandRaiserView = module.exports = React.createClass({
 
-  handleHandRaise: function () {
-    console.log("HandRaised");
+  getInitialState: function () {
+    return {
+      called: false,
+      intervalId: 0
+    };
   },
 
-  handleCalledOn: function () {
-    // this.props.mixins.navTo("CalledOn");
+  handleHandRaise: function () {
+    console.log("Hand Raise Request.");
+    fetch("http://localhost:3000/raiseHand", {
+      method: "POST",
+      token:"TOKEN",
+    })
+    .then(function (res) {
+      console.log(res);
+    });
+  },
+
+  componentWillMount: function () {
+    this.setState({
+      intervalId: setInterval(()=>{
+        fetch("http://localhost:3000/isCalled", {
+        method: "GET",
+        token:"TOKEN",
+        })
+        .then(function (res) {
+          this.handleCalledOn();
+        }.bind(this));
+        console.log("tick");
+      }, 700)
+    });
+  },
+
+  handleCalledOn: function (res) {
+    console.log(res);
+    this.setState({
+      called: true
+    });
   },
 
   handleBack: function () {
+    clearInterval(this.state.intervalId);
     this.props.mixins.back();
   },
 

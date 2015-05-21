@@ -4,13 +4,28 @@ var {
   TouchableOpacity,
   Text,
   StyleSheet,
-  View
+  View,
+  TextInput
 } = React;
 
 var AddClassView = module.exports = React.createClass({
 
+  getInitialState: function () {
+    return {
+      code: ""
+    };
+  },
+
   handleJoin: function () {
-    this.props.mixins.navTo("ClassList");
+    console.log("Making Request.");
+    fetch("http://localhost:3000/checkCode", {
+      method: "POST",
+      token:"TOKEN",
+      body: this.state.code
+    })
+    .then(function (res) {
+      console.log(res);
+    });
   },
 
   handleBack: function () {
@@ -20,6 +35,14 @@ var AddClassView = module.exports = React.createClass({
   render: function () {
     return (
       <View style={styles.container}>
+        <View>
+          <TextInput
+            style={styles.textInput}
+            placeholder={"Code"}
+            onChangeText={(text) => this.setState({code: text})}
+          />
+          <Text style={styles.textDisplay}>{this.state.code}</Text>
+        </View>
         <TouchableOpacity onPress={this.handleJoin}>
           <Text style={styles.TouchableOpacity}>Join Class</Text>
         </TouchableOpacity>
@@ -33,9 +56,22 @@ var AddClassView = module.exports = React.createClass({
 });
 
 var styles = StyleSheet.create({
+  textInput: {
+    width: 150,
+    height: 30,
+    top: 50,
+    backgroundColor: "#000",
+    color: "#fff"
+  },
+
+  textDisplay: {
+    top: 90,
+    color: "#000"
+  },
+
   container: {
     flex: 1,
-    alignItems: "center"
+    alignItems: "center",
   },
 
   TouchableOpacity: {
