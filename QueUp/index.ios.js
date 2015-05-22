@@ -2,6 +2,7 @@
  * Sample React Native App
  * https://github.com/facebook/react-native
  */
+console.log("FISAT");
 'use strict';
 
 var React = require('react-native');
