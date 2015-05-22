@@ -1,11 +1,20 @@
 'use strict';
 var React = require('react-native');
+var SocketIO = require('react-native-swift-socketio');
+
 var {
   TouchableOpacity,
   Text,
   StyleSheet,
   View
 } = React;
+console.log("Before Socket");
+var sockets = new SocketIO("10.6.31.110:8000", {});
+sockets.connect();
+sockets.on('connect', () => {
+  console.log('connecteddddd');
+  sockets.emit('handraise', {test:"data"});
+});
 
 var HandRaiserView = module.exports = React.createClass({
 
@@ -18,7 +27,7 @@ var HandRaiserView = module.exports = React.createClass({
 
   handleHandRaise: function () {
     console.log("Hand Raise Request.");
-    fetch("http://localhost:3000/raiseHand", {
+    fetch("http://localhost:8000/api/students/raiseHand", {
       method: "POST",
       token:"TOKEN",
     })
@@ -29,21 +38,19 @@ var HandRaiserView = module.exports = React.createClass({
 
   componentWillMount: function () {
     this.setState({
-      intervalId: setInterval(()=>{
-        fetch("http://localhost:3000/isCalled", {
+      intervalId: setInterval(() => {
+        fetch("http://localhost:8000/isCalled", {
         method: "GET",
         token:"TOKEN",
         })
         .then(function (res) {
           this.handleCalledOn();
         }.bind(this));
-        console.log("tick");
       }, 700)
     });
   },
 
   handleCalledOn: function (res) {
-    console.log(res);
     this.setState({
       called: true
     });
