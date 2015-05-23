@@ -2,7 +2,6 @@
  * Sample React Native App
  * https://github.com/facebook/react-native
  */
-console.log("FISAT");
 'use strict';
 
 var React = require('react-native');
@@ -12,42 +11,31 @@ var AddClassView = require('./views/AddClass.js');
 var HandRaiserView = require('./views/HandRaiser.js');
 var HomeView = require('./views/Home.js');
 
+var Router = require('react-native-router');
+
+
 
 var {
+  StyleSheet,
   Text,
   Navigator,
   AppRegistry
 } = React;
 
+
+
+var firstRoute = {
+  name: 'QueUp',
+  component: LoginView
+};
+
+
 var QueUp = React.createClass({
 
-
-  renderScene: function(route, navigator) {
-      switch (route.id) {
-        case 'login':
-          return <LoginView navigator={navigator}/>;
-        case 'ClassList':
-          return <HandRaiserView navigator={navigator}/>;
-        case 'AddClass':
-          return <AddClassView navigator={navigator}/>;
-        case 'Home':
-          return <HomeView navigator={navigator}/>;
-        default:
-          return (
-            <Login navigator={navigator}/>
-          );
-      }
-
-  },
-
- render: function () {
-
+ render() {
     return (
-      <Navigator
-      style={{backgroundColor: '#ffffff'}}
-      initialRoute={{ id: "login" }}
-      renderScene={this.renderScene} />
-    )
+      <Router firstRoute={firstRoute} /> 
+    );
   }
 
 });

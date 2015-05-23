@@ -8,6 +8,9 @@ var {
   ListView
 } = React;
 
+var HandRaiserView = require('./HandRaiser.js');
+
+
 var ClassItem = require('../Components/ClassItem.js');
 
  var fakeJSON = [
@@ -91,7 +94,17 @@ var ClassListView = module.exports = React.createClass({
   renderRow: function(item) {
     console.log('----- rendering rows----' + item );
     return (
-        <ClassItem item={item} onSelect={ () =>  item} />
+        <ClassItem item={item} onSelect={ (item) =>  {
+          console.log('--------------------------');
+          console.log('-------------------------' + item);
+
+            this.props.toRoute({
+                name: item.ClassTitle,
+                component: HandRaiserView,
+                data: {selectedClass: item}
+              });
+      
+        }} />
     );
   },
 

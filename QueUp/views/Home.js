@@ -28,13 +28,6 @@ var MainSideMenu = require('react-native-side-menu');
 
 var SideMenuView = require('../Components/SideMenu.js');
 
-    //   props.toRoute({
-    //     name: "raise hand",
-    //     component: HandRaiser,
-    //   });
-    // }
-
-
 
 module.exports = React.createClass({
 
@@ -50,10 +43,13 @@ module.exports = React.createClass({
 
   handleButtonClick: function(event) {
     console.log("--------- Handled action -------------");
-    console.log(event);
+    console.log(this.refs["router"].toRoute);
     switch(event.action) {
       case 'open_sidebar':
         this.siderbar();
+        break;
+      case 'goToAddClass':
+        console.log("---------- ADD CLASS CLICKED ----------------");
         break;
     }
   },
@@ -64,18 +60,20 @@ module.exports = React.createClass({
 
 
   render: function() {
-    console.log("----- NAVIGATOR insie of home  -----");
-    console.dir(this.props.navigator);
+    console.log("----- NAVIGATOR insie of home  ----- >>> to Route ");
+    console.dir(this.props.toRoute);
+
     return (
-      <MainSideMenu menu={<SideMenuView navigator={this.props.navigator}/>} ref="sideBar">
+      <MainSideMenu menu={<SideMenuView toRoute = {this.props.toRoute}/>} ref="sideBar">
       <View style={styles.container}>
-          <View style={styles.container}>
-            <Router ref="router"
-              firstRoute={this.firstRoute}
-              headerStyle={styles.header}
-              customAction={this.handleButtonClick}
-            />
-          </View>
+
+
+
+      <Text> home view </Text>  
+
+
+
+
         </View>
       </MainSideMenu>
     )

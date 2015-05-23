@@ -16,21 +16,64 @@ var Router = require('react-native-router');
 var SideMenu = require('react-native-side-menu');
 var ReactIcon = require("react-native-icons");
 
+
+
+var ClassListView = require('../views/ClassList.js');
+var AddClassView = require('../views/AddClass.js');
+var HandRaiserView = require('../views/HandRaiser.js');
+
+
+
+
 var DeviceWidth = require('Dimensions').get('window').width;
 var DeviceHeight = require('Dimensions').get('window').height;
+
+//----------
+var ClassListView = require('../views/ClassList.js');
+
 
 module.exports = React.createClass({
 
   render: function() {
     console.log("----- NAVIGATOR insie of side menu  -----");
-    console.dir(this.props.navigator);
     return (
       <View>
-        <View style={styles.SideMenuHeader}>
-        </View>
+  
         <View style={styles.menuCol}>
         <ScrollView style={{paddingTop:15}}>
-            <TouchableHighlight underlayColor="#ffffff" onPress={()=>{ this.props.navigator.replace({ id: 'Home' });
+            <TouchableHighlight underlayColor="#ffffff" onPress={()=>{ 
+              console.log('---- pressed going to my classes view ----');
+
+              this.props.toRoute({
+                  name: 'My Classes',
+                  component: ClassListView,
+              });
+
+
+
+               }}>
+                <View style={styles.SideMenuItem}>
+                  <ReactIcon
+                    name='fontawesome|plus'
+                    size={20}
+                    color='#eb6100'
+                    style={styles.MenuIcons}
+                  />
+                  <Text style={styles.ItemText}> My Classes </Text>
+                </View>
+            </TouchableHighlight>
+
+
+         <TouchableHighlight underlayColor="#ffffff" onPress={()=>{ 
+
+             console.log('---- pressed, going to add class view ----');
+
+              this.props.toRoute({
+                  name: 'Add Classes',
+                  component: AddClassView,
+              });
+
+
                }}>
                 <View style={styles.SideMenuItem}>
                   <ReactIcon
@@ -43,21 +86,10 @@ module.exports = React.createClass({
                 </View>
             </TouchableHighlight>
 
+         <TouchableHighlight underlayColor="#ffffff" onPress={()=>{ 
 
-         <TouchableHighlight underlayColor="#ffffff" onPress={()=>{ this.props.navigator.replace({ id: 'Home' });
-               }}>
-                <View style={styles.SideMenuItem}>
-                  <ReactIcon
-                    name='fontawesome|plus'
-                    size={20}
-                    color='#eb6100'
-                    style={styles.MenuIcons}
-                  />
-                  <Text style={styles.ItemText}>GO TO TEST </Text>
-                </View>
-            </TouchableHighlight>
+                        console.log('---- pressed ----');
 
-         <TouchableHighlight underlayColor="#ffffff" onPress={()=>{ this.props.navigator.replace({ id: 'Home' });
                }}>
                 <View style={styles.SideMenuItem}>
                   <ReactIcon
@@ -66,7 +98,7 @@ module.exports = React.createClass({
                     color='#eb6100'
                     style={styles.MenuIcons}
                   />
-                  <Text style={styles.ItemText}>GO TO TEST </Text>
+                  <Text style={styles.ItemText}> Log out </Text>
                 </View>
             </TouchableHighlight>
 
@@ -102,12 +134,7 @@ var styles = StyleSheet.create({
     width: 40,
     height: 40,
   },
-  SideMenuHeader: {
-    position: 'absolute',
-    width: DeviceWidth,
-    height: 67,
-    backgroundColor: '#83CF1C',
-  },
+
 
  ItemText: {
    marginTop: 10,

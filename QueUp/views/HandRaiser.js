@@ -62,10 +62,16 @@ var HandRaiserView = module.exports = React.createClass({
   },
 
   render: function () {
+    console.log("------------------------ Props -----------------> ");
+    console.dir(this.props);
     return (
       <View style={styles.container}>
         <TouchableOpacity onPress={this.handleHandRaise}>
-          <Text style={styles.TouchableOpacity}>Raise Hand</Text>
+        <View>
+            <Text style={styles.TouchableOpacity}> current class </Text>
+            <Text style={styles.TouchableOpacity}> {this.props.data.selectedClass.ClassTitle} </Text>
+            <Text style={styles.TouchableOpacity}>Raise Hand</Text>
+        </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={this.handleCalledOn}>
           <Text style={styles.TouchableOpacity}>Go To Called On</Text>

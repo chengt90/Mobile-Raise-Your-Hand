@@ -10,6 +10,9 @@ var {
 
 var FacebookLoginManager = require('NativeModules').FacebookLoginManager;
 
+var HomwView = require('./Home.js');
+
+
 var LoginView = module.exports = React.createClass({
 
   getInitialState: function () {
@@ -23,7 +26,10 @@ var LoginView = module.exports = React.createClass({
       .then((token)=>{
         if(token !== null) {
           console.log("----- USER ALREADT LOGGED IN TOKEN IS : " + token);
-          this.props.navigator.replace({ id: 'Home' });
+          this.props.toRoute({
+                name: 'QueUP Home',
+                component: HomwView,
+          });
         }
       });
   },
@@ -42,7 +48,14 @@ var LoginView = module.exports = React.createClass({
           console.log("------- token set , and save it with AsyncStorage---------");
           self.saveToken(self.state.fbToken);
           // use logged in switching to classList
-          this.props.navigator.replace({ id: 'Home' });
+          //this.props.navigator.replace({ id: 'Home' });
+          this.props.toRoute({
+                name: 'QueUP Home',
+                component: HomwView,
+          });
+
+
+
         });
       }
     });

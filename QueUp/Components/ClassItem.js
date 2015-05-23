@@ -37,10 +37,11 @@ module.exports = React.createClass({
 		var item = this.props.item;
         console.log("------------------------------------------------");
         console.dir(item);
+        //onPress={() => ListView.addScore(item._id)}
 
 		return (
             
-			<TouchableOpacity onPress={this.props.onSelect}>
+			<TouchableOpacity onPress={() => this.props.onSelect(item)}>
 				<View style={styles.container}>			
 
 					<View style={styles.ClassList}>
