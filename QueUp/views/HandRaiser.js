@@ -58,7 +58,7 @@ var HandRaiserView = module.exports = React.createClass({
 
   handleBack: function () {
     clearInterval(this.state.intervalId);
-    this.props.mixins.back();
+    //this.props.mixins.back();
   },
 
   render: function () {
