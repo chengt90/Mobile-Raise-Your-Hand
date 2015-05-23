@@ -8,26 +8,32 @@ var {
   AsyncStorage
 } = React;
 
-  var FacebookLoginManager = require('NativeModules').FacebookLoginManager;
+var FacebookLoginManager = require('NativeModules').FacebookLoginManager;
+
+var SideMenuIconComponent = require('../Components/SideMenuButton.js');
+
+var HomwView = require('./Home.js');
 
 
 var LoginView = module.exports = React.createClass({
 
-
   getInitialState: function () {
+
     return {
       fbToken: '',
     };
   },
 
-
   componentDidMount: function() {
     AsyncStorage.getItem("QueUptoken")
       .then((token)=>{
         if(token !== null) {
-          console.log("----- Token is : " + token);
-          //id the user is already log in do nothing and send them to the next page.
-          //self.props.mixins.navTo("ClassList");
+          console.log("----- USER ALREADT LOGGED IN TOKEN IS : " + token);
+          this.props.toRoute({
+                name: 'QueUP Home',
+                component: HomwView,
+                leftCorner: SideMenuIconComponent
+          });
         }
       });
   },
@@ -46,12 +52,17 @@ var LoginView = module.exports = React.createClass({
           console.log("------- token set , and save it with AsyncStorage---------");
           self.saveToken(self.state.fbToken);
           // use logged in switching to classList
-          self.props.mixins.navTo("ClassList");
+          //this.props.navigator.replace({ id: 'Home' });
+          this.props.toRoute({
+                name: 'QueUP Home',
+                component: HomwView,
+                leftCorner: SideMenuIconComponent,
+          });
+
         });
       }
     });
   },
-
 
   saveToken: function(token){
     console.log("---- > saving fb token to AsyncStorage " + token);
@@ -65,10 +76,6 @@ var LoginView = module.exports = React.createClass({
       });
     });
   },
-
-  // handlePress: function () {
-  //   this.props.mixins.navTo("ClassList");
-  // },
 
 render: function () {
     return (

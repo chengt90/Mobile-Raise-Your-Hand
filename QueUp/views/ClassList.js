@@ -4,36 +4,104 @@ var {
   TouchableOpacity,
   Text,
   StyleSheet,
-  View
+  View,
+  ListView
 } = React;
+
+var HandRaiserView = require('./HandRaiser.js');
+
+
+var ClassItem = require('../Components/ClassItem.js');
+
+ var fakeJSON = [
+          {
+            ClassTitle: 'Super cool class',
+            Instructor: 'Professor Tim',
+            CurrentlyActive: true
+          },
+          {
+            ClassTitle: 'Another random class',
+            Instructor: 'Professor Bob',
+            CurrentlyActive: false
+          },
+          {
+            ClassTitle: 'Super cool class',
+            Instructor: 'Professor Tim',
+            CurrentlyActive: true
+          },
+          {
+            ClassTitle: 'Another random class',
+            Instructor: 'Professor Bob',
+            CurrentlyActive: false
+          },
+          {
+            ClassTitle: 'Super cool class',
+            Instructor: 'Professor Tim',
+            CurrentlyActive: true
+          },
+          {
+            ClassTitle: 'Another random class',
+            Instructor: 'Professor Bob',
+            CurrentlyActive: false
+          }
+        ];
+
 
 var ClassListView = module.exports = React.createClass({
 
+  getInitialState: function() {
+    console.log("----------------- class list rendered-------")
+        return {
+            dataSource: new ListView.DataSource({rowHasChanged: (row1, row2) => row1 !== row2})        
+        };
+    },
+
   handleAddPress: function () {
-    this.props.mixins.navTo("AddClass");
   },
 
   handleClassPress: function () {
-    this.props.mixins.navTo("HandRaiser");
   },
 
   handleBack: function () {
-    this.props.mixins.back();
   },
+
+  componentDidMount: function() {
+      var self = this;
+      fakeJSON = fakeJSON;
+      console.dir(fakeJSON);
+      self.setState({ dataSource: self.state.dataSource.cloneWithRows(fakeJSON) }, function(){
+              console.dir(self.state.dataSource);
+      });
+  },
+
+
+  renderListView : function(){
+    return(
+      <ListView contentInset={{top: -64}}
+        dataSource={this.state.dataSource}
+        renderRow={this.renderRow}
+        style={styles.listView}/>
+    );
+  },
+
+
+  renderRow: function(item) {
+    console.log('----- rendering rows----' + item );
+    return (
+      <ClassItem item={item} onSelect={ (item) =>  {
+             this.props.toRoute({
+              name: item.ClassTitle,
+              component: HandRaiserView,
+              data: {selectedClass: item}
+            });
+      }} />
+    );
+  },
+
 
   render: function () {
     return (
-      <View style={styles.container}>
-        <TouchableOpacity onPress={this.handleClassPress}>
-          <Text style={styles.TouchableOpacity}>Class1</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.handleAddPress}>
-          <Text style={styles.TouchableOpacity}>Add Class</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.handleBack}>
-          <Text style={styles.TouchableOpacity}>Back</Text>
-        </TouchableOpacity>
-      </View>
+      this.renderListView()
     );
   }
 
