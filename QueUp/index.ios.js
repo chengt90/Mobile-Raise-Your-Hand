@@ -6,11 +6,6 @@
 
 var React = require('react-native');
 var LoginView = require('./views/Login.js');
-var ClassListView = require('./views/ClassList.js');
-var AddClassView = require('./views/AddClass.js');
-var HandRaiserView = require('./views/HandRaiser.js');
-var HomeView = require('./views/Home.js');
-
 var Router = require('react-native-router');
 
 
@@ -19,7 +14,8 @@ var {
   StyleSheet,
   Text,
   Navigator,
-  AppRegistry
+  AppRegistry,
+  AsyncStorage
 } = React;
 
 
@@ -32,13 +28,14 @@ var firstRoute = {
 
 var QueUp = React.createClass({
 
- render() {
+ render: function() {
     return (
-      <Router firstRoute={firstRoute} /> 
+      <Router 
+        firstRoute={firstRoute} 
+      /> 
     );
   }
 
 });
-
 
 AppRegistry.registerComponent('QueUp', () => QueUp);

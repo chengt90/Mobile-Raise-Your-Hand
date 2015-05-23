@@ -52,32 +52,26 @@ var ClassListView = module.exports = React.createClass({
   getInitialState: function() {
     console.log("----------------- class list rendered-------")
         return {
-            dataSource: new ListView.DataSource({rowHasChanged: (row1, row2) => row1 !== row2}),
-            test: 'test'
+            dataSource: new ListView.DataSource({rowHasChanged: (row1, row2) => row1 !== row2})        
         };
     },
 
   handleAddPress: function () {
-    //this.props.mixins.navTo("AddClass");
   },
 
   handleClassPress: function () {
-    //this.props.mixins.navTo("HandRaiser");
   },
 
   handleBack: function () {
-    //this.props.mixins.back();
   },
 
   componentDidMount: function() {
-        var self = this;
-       fakeJSON = fakeJSON;
-        console.log("---- rendering list view ----- + ");
-        console.dir(fakeJSON);
-        self.setState({ dataSource: self.state.dataSource.cloneWithRows(fakeJSON) }, function(){
-                console.log('--------- state updated --------------------');
-                console.dir(self.state.dataSource);
-        });
+      var self = this;
+      fakeJSON = fakeJSON;
+      console.dir(fakeJSON);
+      self.setState({ dataSource: self.state.dataSource.cloneWithRows(fakeJSON) }, function(){
+              console.dir(self.state.dataSource);
+      });
   },
 
 
@@ -94,17 +88,13 @@ var ClassListView = module.exports = React.createClass({
   renderRow: function(item) {
     console.log('----- rendering rows----' + item );
     return (
-        <ClassItem item={item} onSelect={ (item) =>  {
-          console.log('--------------------------');
-          console.log('-------------------------' + item);
-
-            this.props.toRoute({
-                name: item.ClassTitle,
-                component: HandRaiserView,
-                data: {selectedClass: item}
-              });
-      
-        }} />
+      <ClassItem item={item} onSelect={ (item) =>  {
+             this.props.toRoute({
+              name: item.ClassTitle,
+              component: HandRaiserView,
+              data: {selectedClass: item}
+            });
+      }} />
     );
   },
 

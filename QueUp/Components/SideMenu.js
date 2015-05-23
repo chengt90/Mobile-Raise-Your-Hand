@@ -13,45 +13,32 @@ var {
 
 var Router = require('react-native-router');
 
-var SideMenu = require('react-native-side-menu');
 var ReactIcon = require("react-native-icons");
 
 
 
 var ClassListView = require('../views/ClassList.js');
 var AddClassView = require('../views/AddClass.js');
-var HandRaiserView = require('../views/HandRaiser.js');
-
-
-
 
 var DeviceWidth = require('Dimensions').get('window').width;
 var DeviceHeight = require('Dimensions').get('window').height;
-
-//----------
-var ClassListView = require('../views/ClassList.js');
 
 
 module.exports = React.createClass({
 
   render: function() {
-    console.log("----- NAVIGATOR insie of side menu  -----");
     return (
       <View>
   
         <View style={styles.menuCol}>
         <ScrollView style={{paddingTop:15}}>
             <TouchableHighlight underlayColor="#ffffff" onPress={()=>{ 
-              console.log('---- pressed going to my classes view ----');
-
-              this.props.toRoute({
-                  name: 'My Classes',
-                  component: ClassListView,
-              });
-
-
-
-               }}>
+                console.log('---- pressed going to my classes view ----');
+                this.props.toRoute({
+                    name: 'My Classes',
+                    component: ClassListView,
+                });
+            }}>
                 <View style={styles.SideMenuItem}>
                   <ReactIcon
                     name='fontawesome|plus'

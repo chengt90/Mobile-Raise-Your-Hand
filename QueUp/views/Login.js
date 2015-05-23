@@ -10,12 +10,15 @@ var {
 
 var FacebookLoginManager = require('NativeModules').FacebookLoginManager;
 
+var SideMenuIconComponent = require('../Components/SideMenuButton.js');
+
 var HomwView = require('./Home.js');
 
 
 var LoginView = module.exports = React.createClass({
 
   getInitialState: function () {
+
     return {
       fbToken: '',
     };
@@ -29,6 +32,7 @@ var LoginView = module.exports = React.createClass({
           this.props.toRoute({
                 name: 'QueUP Home',
                 component: HomwView,
+                leftCorner: SideMenuIconComponent
           });
         }
       });
@@ -52,15 +56,13 @@ var LoginView = module.exports = React.createClass({
           this.props.toRoute({
                 name: 'QueUP Home',
                 component: HomwView,
+                leftCorner: SideMenuIconComponent,
           });
-
-
 
         });
       }
     });
   },
-
 
   saveToken: function(token){
     console.log("---- > saving fb token to AsyncStorage " + token);
@@ -74,7 +76,6 @@ var LoginView = module.exports = React.createClass({
       });
     });
   },
-
 
 render: function () {
     return (
