@@ -8,6 +8,7 @@
  */
 
 #import "AppDelegate.h"
+#import "FBSDKCoreKit/FBSDKCoreKit.h"
 
 #import "RCTRootView.h"
 
@@ -31,7 +32,7 @@
    * on the same Wi-Fi network.
    */
 
-  jsCodeLocation = [NSURL URLWithString:@"http://10.6.31.110:8081/index.ios.bundle"];
+  jsCodeLocation = [NSURL URLWithString:@"http://127.0.0.1:8081/index.ios.bundle"];
 
   /**
    * OPTION 2
@@ -56,5 +57,21 @@
   [self.window makeKeyAndVisible];
   return YES;
 }
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+  [FBSDKAppEvents activateApp];
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+  return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                        openURL:url
+                                              sourceApplication:sourceApplication
+                                                     annotation:annotation];
+}
+
+
 
 @end
