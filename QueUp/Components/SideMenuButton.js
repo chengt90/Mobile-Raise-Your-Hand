@@ -11,8 +11,9 @@ var Icon = require("react-native-icons");
 
 module.exports = React.createClass({
   render: function() {
+
     return (
-      <TouchableOpacity onPress={()=>{ global.sideMenu.openMenu();; }}>
+      <TouchableOpacity onPress={()=>{ global.mainSideMenu.toggleMenu(); }}>
           <Icon
             name='fontawesome|bars'
             size={15}

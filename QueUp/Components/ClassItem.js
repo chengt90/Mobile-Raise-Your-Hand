@@ -13,9 +13,9 @@ var styles = StyleSheet.create({
     	flex : 1,
     	padding : 10,
         flexDirection: 'row',
-        borderBottomColor : '#eeeeee',
-        borderBottomWidth : 1,
-        backgroundColor: '#ffffff',
+        borderBottomColor : '#ffffff',
+        borderBottomWidth : .5,
+        backgroundColor: '#18CFAA',
     },
     ClassList : {
     	flex : 1,
@@ -23,12 +23,12 @@ var styles = StyleSheet.create({
     },
     ClassTitle : {
     	fontSize : 16,
-    	height : 40,
-    	fontWeight : '700',
-    	color : '#000000',
+    	color : 'white',
         textAlign: 'left',
         marginTop: 10,
         marginRight: 10,
+        fontFamily: 'HelveticaNeue-Light',
+
     }
 });
 
@@ -43,7 +43,6 @@ module.exports = React.createClass({
             
 			<TouchableOpacity onPress={() => this.props.onSelect(item)}>
 				<View style={styles.container}>			
-
 					<View style={styles.ClassList}>
 						<Text style={styles.ClassTitle} numberOfLines={2}>{item.ClassTitle}</Text>
 					</View>					

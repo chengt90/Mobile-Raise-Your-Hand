@@ -13,6 +13,10 @@ var HandRaiserView = require('./HandRaiser.js');
 
 var ClassItem = require('../Components/ClassItem.js');
 
+
+var HeaderLogo = require('../Components/HeaderLogo.js')
+
+
  var fakeJSON = [
           {
             ClassTitle: 'Super cool class',
@@ -92,7 +96,9 @@ var ClassListView = module.exports = React.createClass({
              this.props.toRoute({
               name: item.ClassTitle,
               component: HandRaiserView,
-              data: {selectedClass: item}
+              data: {selectedClass: item},
+              titleComponent: HeaderLogo
+
             });
       }} />
     );
@@ -108,6 +114,10 @@ var ClassListView = module.exports = React.createClass({
 });
 
 var styles = StyleSheet.create({
+  listView: {
+    backgroundColor: '#18CFAA'
+  },
+
   container: {
     flex: 1,
     alignItems: "center"
