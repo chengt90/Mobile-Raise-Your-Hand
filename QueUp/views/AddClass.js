@@ -5,7 +5,8 @@ var {
   Text,
   StyleSheet,
   View,
-  TextInput
+  TextInput,
+  TouchableHighlight
 } = React;
 
 var AddClassView = module.exports = React.createClass({
@@ -28,9 +29,7 @@ var AddClassView = module.exports = React.createClass({
     });
   },
 
-  handleBack: function () {
-    this.props.mixins.back();
-  },
+
 
   render: function () {
     return (
@@ -38,17 +37,19 @@ var AddClassView = module.exports = React.createClass({
         <View>
           <TextInput
             style={styles.textInput}
-            placeholder={"Code"}
+            placeholder={"4 digit class ID"}
             onChangeText={(text) => this.setState({code: text})}
           />
-          <Text style={styles.textDisplay}>{this.state.code}</Text>
         </View>
-        <TouchableOpacity onPress={this.handleJoin}>
-          <Text style={styles.TouchableOpacity}>Join Class</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.handleBack}>
-          <Text style={styles.TouchableOpacity}>Back</Text>
-        </TouchableOpacity>
+
+      <TouchableHighlight
+          style={styles.button}
+          onPress={this.handleJoin}          
+          underlayColor="white">
+          <Text style={styles.buttonText}> Add Class </Text>
+      </TouchableHighlight>
+
+
       </View>
     );
   }
@@ -57,11 +58,33 @@ var AddClassView = module.exports = React.createClass({
 
 var styles = StyleSheet.create({
   textInput: {
-    width: 150,
-    height: 30,
-    top: 50,
-    backgroundColor: "#000",
-    color: "#fff"
+    top:50,
+    height: 50,
+    width:200,
+    padding: 4,
+    marginRight: 5,
+    fontSize: 23,
+    borderWidth: 1,
+    borderColor: 'white',
+    borderRadius: 8,
+    color: 'white'
+  },
+  button: {
+    top: 200,
+    height: 45,
+    flexDirection: 'row',
+    backgroundColor: 'white',
+    borderColor: 'white',
+    borderWidth: 1,
+    borderRadius: 8,
+    marginBottom: 10,
+    marginTop: 10,
+    justifyContent: 'center'
+  },
+  buttonText: {
+    fontSize: 18,
+    color: '#18CFAA',
+    alignSelf: 'center'
   },
 
   textDisplay: {
@@ -72,6 +95,7 @@ var styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
+    backgroundColor: '#18CFAA'
   },
 
   TouchableOpacity: {

@@ -39,6 +39,9 @@
 		3217773B1B0EFE8E00FCBBF0 /* SwiftRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3217772C1B0EFE8E00FCBBF0 /* SwiftRegex.swift */; };
 		3217773C1B0EFE8E00FCBBF0 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3217772D1B0EFE8E00FCBBF0 /* WebSocket.swift */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		8B24749E1B1398DD00CF9000 /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B24749D1B13989D00CF9000 /* libRCTVideo.a */; };
+		8B2474A01B13991900CF9000 /* loginBackGround.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8B24749F1B13991900CF9000 /* loginBackGround.mp4 */; };
+		8B2474A21B139B8300CF9000 /* ffcspace.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8B2474A11B139B8300CF9000 /* ffcspace.mp4 */; };
 		8B8D522E1B10324F00157C20 /* libReactNativeIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B8D522D1B10322E00157C20 /* libReactNativeIcons.a */; };
 		8B8D523E1B1032CB00157C20 /* FAKFontAwesome.h in Resources */ = {isa = PBXBuildFile; fileRef = 8B8D522F1B1032CB00157C20 /* FAKFontAwesome.h */; };
 		8B8D523F1B1032CB00157C20 /* FAKFontAwesome.m in Resources */ = {isa = PBXBuildFile; fileRef = 8B8D52301B1032CB00157C20 /* FAKFontAwesome.m */; };
@@ -59,6 +62,7 @@
 		8BCDDF0E1B0FB99C00A78050 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCDDF081B0FB99C00A78050 /* Bolts.framework */; };
 		8BCDDF101B0FB99C00A78050 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCDDF0A1B0FB99C00A78050 /* FBSDKCoreKit.framework */; };
 		8BCDDF111B0FB99C00A78050 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCDDF0B1B0FB99C00A78050 /* FBSDKLoginKit.framework */; };
+		8BF024E31B12AF41007D7C7A /* libRCTAnimationExperimental.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF024D81B12AE9C007D7C7A /* libRCTAnimationExperimental.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,12 +150,26 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
+		8B24749C1B13989D00CF9000 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B2474981B13989D00CF9000 /* RCTVideo.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RCTVideo;
+		};
 		8B8D522C1B10322E00157C20 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8B8D521D1B10322E00157C20 /* ReactNativeIcons.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 2F5A3EB81ACDBF8000439386;
 			remoteInfo = ReactNativeIcons;
+		};
+		8BF024D71B12AE9C007D7C7A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8BF024D11B12AE9C007D7C7A /* RCTAnimationExperimental.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RCTAnimationExperimental;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -194,6 +212,9 @@
 		3217772D1B0EFE8E00FCBBF0 /* WebSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		8B2474981B13989D00CF9000 /* RCTVideo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTVideo.xcodeproj; path = "node_modules/react-native-video/RCTVideo.xcodeproj"; sourceTree = "<group>"; };
+		8B24749F1B13991900CF9000 /* loginBackGround.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = loginBackGround.mp4; sourceTree = "<group>"; };
+		8B2474A11B139B8300CF9000 /* ffcspace.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ffcspace.mp4; sourceTree = "<group>"; };
 		8B8D521D1B10322E00157C20 /* ReactNativeIcons.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeIcons.xcodeproj; path = "node_modules/react-native-icons/ios/ReactNativeIcons.xcodeproj"; sourceTree = "<group>"; };
 		8B8D522F1B1032CB00157C20 /* FAKFontAwesome.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FAKFontAwesome.h; path = "node_modules/react-native-icons/ios/ReactNativeIcons/Libraries/FontAwesomeKit/FAKFontAwesome.h"; sourceTree = "<group>"; };
 		8B8D52301B1032CB00157C20 /* FAKFontAwesome.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FAKFontAwesome.m; path = "node_modules/react-native-icons/ios/ReactNativeIcons/Libraries/FontAwesomeKit/FAKFontAwesome.m"; sourceTree = "<group>"; };
@@ -218,6 +239,7 @@
 		8BCDDF0B1B0FB99C00A78050 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		8BCDDF0C1B0FB99C00A78050 /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKMessengerShareKit.framework; path = ../../FacebookSDK/FBSDKMessengerShareKit.framework; sourceTree = "<group>"; };
 		8BCDDF0D1B0FB99C00A78050 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		8BF024D11B12AE9C007D7C7A /* RCTAnimationExperimental.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimationExperimental.xcodeproj; path = "node_modules/react-native/Libraries/Animation/RCTAnimationExperimental.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +254,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B24749E1B1398DD00CF9000 /* libRCTVideo.a in Frameworks */,
 				8B8D522E1B10324F00157C20 /* libReactNativeIcons.a in Frameworks */,
 				8BCDDF0E1B0FB99C00A78050 /* Bolts.framework in Frameworks */,
 				8BCDDF101B0FB99C00A78050 /* FBSDKCoreKit.framework in Frameworks */,
@@ -241,6 +264,7 @@
 				00C302E61ABCBA2D00DB3ED1 /* libRCTAdSupport.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
+				8BF024E31B12AF41007D7C7A /* libRCTAnimationExperimental.a in Frameworks */,
 				133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */,
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
@@ -401,6 +425,8 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				8B2474981B13989D00CF9000 /* RCTVideo.xcodeproj */,
+				8BF024D11B12AE9C007D7C7A /* RCTAnimationExperimental.xcodeproj */,
 				8B8D521D1B10322E00157C20 /* ReactNativeIcons.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -428,6 +454,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				8B2474A11B139B8300CF9000 /* ffcspace.mp4 */,
+				8B24749F1B13991900CF9000 /* loginBackGround.mp4 */,
 				8B8D522F1B1032CB00157C20 /* FAKFontAwesome.h */,
 				8B8D52301B1032CB00157C20 /* FAKFontAwesome.m */,
 				8B8D52311B1032CB00157C20 /* FAKFoundationIcons.h */,
@@ -468,10 +496,26 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		8B2474991B13989D00CF9000 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8B24749D1B13989D00CF9000 /* libRCTVideo.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		8B8D521E1B10322E00157C20 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				8B8D522D1B10322E00157C20 /* libReactNativeIcons.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8BF024D21B12AE9C007D7C7A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8BF024D81B12AE9C007D7C7A /* libRCTAnimationExperimental.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -550,6 +594,10 @@
 					ProjectRef = 00C302AF1ABCB8E700DB3ED1 /* RCTAdSupport.xcodeproj */;
 				},
 				{
+					ProductGroup = 8BF024D21B12AE9C007D7C7A /* Products */;
+					ProjectRef = 8BF024D11B12AE9C007D7C7A /* RCTAnimationExperimental.xcodeproj */;
+				},
+				{
 					ProductGroup = 00C302B61ABCB90400DB3ED1 /* Products */;
 					ProjectRef = 00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */;
 				},
@@ -576,6 +624,10 @@
 				{
 					ProductGroup = 00C302E01ABCB9EE00DB3ED1 /* Products */;
 					ProjectRef = 00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */;
+				},
+				{
+					ProductGroup = 8B2474991B13989D00CF9000 /* Products */;
+					ProjectRef = 8B2474981B13989D00CF9000 /* RCTVideo.xcodeproj */;
 				},
 				{
 					ProductGroup = 139FDEE71B06529A00C62182 /* Products */;
@@ -676,11 +728,25 @@
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		8B24749D1B13989D00CF9000 /* libRCTVideo.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTVideo.a;
+			remoteRef = 8B24749C1B13989D00CF9000 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		8B8D522D1B10322E00157C20 /* libReactNativeIcons.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libReactNativeIcons.a;
 			remoteRef = 8B8D522C1B10322E00157C20 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8BF024D81B12AE9C007D7C7A /* libRCTAnimationExperimental.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTAnimationExperimental.a;
+			remoteRef = 8BF024D71B12AE9C007D7C7A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -697,6 +763,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B2474A21B139B8300CF9000 /* ffcspace.mp4 in Resources */,
+				8B2474A01B13991900CF9000 /* loginBackGround.mp4 in Resources */,
 				8B8D523E1B1032CB00157C20 /* FAKFontAwesome.h in Resources */,
 				8B8D523F1B1032CB00157C20 /* FAKFontAwesome.m in Resources */,
 				8B8D52401B1032CB00157C20 /* FAKFoundationIcons.h in Resources */,

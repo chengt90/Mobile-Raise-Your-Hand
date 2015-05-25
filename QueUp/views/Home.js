@@ -21,24 +21,61 @@ var DeviceWidth = require('Dimensions').get('window').width;
 var DeviceHeight = require('Dimensions').get('window').height;
 var MainSideMenu = require('react-native-side-menu');
 var SideMenuView = require('../Components/SideMenu.js');
+var SideMenuIconComponent = require('../Components/SideMenuButton.js');
+
+
+var DashboardView = require('./Dashboard.js');
+
+var HeaderLogo = require('../Components/HeaderLogo.js')
+
 
 
 module.exports = React.createClass({
 
-  componentDidMount: function() {
-    global.sideMenu = this.refs["sideBar"];
+  getInitialState: function () {
+    var currentUser = JSON.parse(this.props.currentUser);
+    return {
+      currentUserName: currentUser.name,
+      currentUserEmail: currentUser.email,
+      currentUserPicture: currentUser.picture,
+      
+    };
+    
   },
 
+  componentDidMount: function() {
+    global.mainSideMenu = this.refs["mainSideMenu"];
+  },
+
+  firstRoute: {
+    name: 'Dashboard',
+    data: {},
+    component: DashboardView,
+    leftCorner: SideMenuIconComponent
+  },
 
   render: function() {
+
+    console.log("----------- trying to render home ------- ");
+    console.log("----------- trying to render home ------- ");
+
     return (
-      <MainSideMenu menu={<SideMenuView toRoute = {this.props.toRoute}/>} ref="sideBar">
-        <View style={styles.container}>
+    <MainSideMenu menu={<SideMenuView />} ref="mainSideMenu">
 
-        <Text> home view </Text>  
+          <Router ref="router"
+            firstRoute = { 
+                  {
+                  name: 'Dashboard',
+                  data: {currentUser: this.state},
+                  component: DashboardView,
+                  leftCorner: SideMenuIconComponent,
+                  titleComponent: HeaderLogo
+                  }
+            }
+            headerStyle={styles.header}
+          />
+    </MainSideMenu>
 
-        </View>
-      </MainSideMenu>
     )
   }
 });
@@ -49,7 +86,7 @@ var styles = StyleSheet.create({
     backgroundColor: '#ffffff'
   },
   header: {
-    height: 67,
-    backgroundColor: '#83CF1C'
+    height: 60,
+    backgroundColor: '#18CFAA'
   }
 });

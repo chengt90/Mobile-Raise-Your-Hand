@@ -7,7 +7,8 @@ var {
   Text,
   TouchableOpacity,
   TouchableHighlight,
-  ScrollView
+  ScrollView,
+  Animation
 } = React;
 
 
@@ -23,72 +24,66 @@ var AddClassView = require('../views/AddClass.js');
 var DeviceWidth = require('Dimensions').get('window').width;
 var DeviceHeight = require('Dimensions').get('window').height;
 
+var reactTimerMixin = require('react-timer-mixin');
+
+var AnimationExperimental = require('AnimationExperimental');
+
+
+
 
 module.exports = React.createClass({
+  mixins: [reactTimerMixin],
+  componentWillMount: function() {
+  },
+
+  componentWillReceiveProps:function(){
+  },
+
+
+
 
   render: function() {
     return (
       <View>
   
-        <View style={styles.menuCol}>
+        <View style={styles.menuCol} ref="menuContent">
         <ScrollView style={{paddingTop:15}}>
-            <TouchableHighlight underlayColor="#ffffff" onPress={()=>{ 
+            <TouchableOpacity underlayColor="#ffffff" onPress={()=>{ 
                 console.log('---- pressed going to my classes view ----');
-                this.props.toRoute({
+                console.dir (global.router);
+                global.router({
                     name: 'My Classes',
                     component: ClassListView,
                 });
+                this.setTimeout(()=>{
+                  global.mainSideMenu.closeMenu();
+                }, 20);
             }}>
                 <View style={styles.SideMenuItem}>
-                  <ReactIcon
-                    name='fontawesome|plus'
-                    size={20}
-                    color='#eb6100'
-                    style={styles.MenuIcons}
-                  />
-                  <Text style={styles.ItemText}> My Classes </Text>
+                  <Text style={styles.ItemText}>MY CLASSES </Text>
                 </View>
-            </TouchableHighlight>
+            </TouchableOpacity>
 
 
-         <TouchableHighlight underlayColor="#ffffff" onPress={()=>{ 
-
-             console.log('---- pressed, going to add class view ----');
-
-              this.props.toRoute({
+         <TouchableOpacity underlayColor="#FFD200" onPress={()=>{ 
+              global.router({
                   name: 'Add Classes',
                   component: AddClassView,
               });
+              
+              this.setTimeout(()=>{
+                  global.mainSideMenu.closeMenu();
+              }, 20);
+
+              }}>
 
 
-               }}>
                 <View style={styles.SideMenuItem}>
-                  <ReactIcon
-                    name='fontawesome|plus'
-                    size={20}
-                    color='#eb6100'
-                    style={styles.MenuIcons}
-                  />
-                  <Text style={styles.ItemText}>GO TO TEST </Text>
+                  <Text style={styles.ItemText}>ADD CLASSES  </Text>
                 </View>
-            </TouchableHighlight>
 
-         <TouchableHighlight underlayColor="#ffffff" onPress={()=>{ 
 
-                        console.log('---- pressed ----');
-
-               }}>
-                <View style={styles.SideMenuItem}>
-                  <ReactIcon
-                    name='fontawesome|sign-out'
-                    size={20}
-                    color='#eb6100'
-                    style={styles.MenuIcons}
-                  />
-                  <Text style={styles.ItemText}> Log out </Text>
-                </View>
-            </TouchableHighlight>
-
+          </TouchableOpacity>
 
           </ScrollView>
 
@@ -102,18 +97,22 @@ module.exports = React.createClass({
 var styles = StyleSheet.create({
 
   menuCol: {
-    top : 70,
+    top : 0,
     height: DeviceHeight + 110,
     width: DeviceWidth* 2,
+    backgroundColor: '#FFD200',
+
   },
 
   SideMenuItem: {
+    top: DeviceWidth/1.5,
     marginLeft: -10,
     flexDirection: 'row',
     alignItems: 'flex-start',
     justifyContent: 'center',
     height: 50,
-    width: DeviceWidth/2,
+    width: DeviceWidth,
+
   },
   MenuIcons: {
     position: 'absolute',
@@ -124,9 +123,10 @@ var styles = StyleSheet.create({
 
 
  ItemText: {
-   marginTop: 10,
-   marginLeft: 20,
+   marginLeft: -40,
    justifyContent: 'center',
+   color: 'white',
+   fontWeight: '800'
 
  }
 
