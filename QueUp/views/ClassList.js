@@ -20,6 +20,7 @@ var HeaderLogo = require('../Components/HeaderLogo.js')
  var fakeJSON = [
           {
             ClassTitle: 'Super cool class',
+            ClassID: '8uoc',
             Instructor: 'Professor Tim',
             CurrentlyActive: true
           },
@@ -115,6 +116,7 @@ var ClassListView = module.exports = React.createClass({
 
 var styles = StyleSheet.create({
   listView: {
+    paddingTop: 50,
     backgroundColor: '#18CFAA'
   },
 
