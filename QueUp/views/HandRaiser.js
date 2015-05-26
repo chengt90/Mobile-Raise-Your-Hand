@@ -21,8 +21,7 @@ console.log("Before Socket");
 var sockets = new SocketIO("10.6.31.110:8000", {});
 sockets.connect();
 sockets.on('connect', () => {
-  console.log('connecteddddd');
-  sockets.emit('handraise', {test:"data"});
+  console.log('Socket connected.');
 });
 
 var HandRaiserView = module.exports = React.createClass({
@@ -36,27 +35,22 @@ var HandRaiserView = module.exports = React.createClass({
 
   handleHandRaise: function () {
     console.log("Hand Raise Request.");
-    fetch("http://localhost:8000/api/students/raiseHand", {
-      method: "POST",
-      token:"TOKEN",
-    })
-    .then(function (res) {
-      console.log(res);
-    });
+    // console.log(JSON.stringify(this.props));
+    sockets.emit('handraise', {classID:this.props.data.selectedClass.ClassID});
   },
 
   componentWillMount: function () {
-    this.setState({
-      intervalId: setInterval(() => {
-        fetch("http://localhost:8000/isCalled", {
-        method: "GET",
-        token:"TOKEN",
-        })
-        .then(function (res) {
-          this.handleCalledOn();
-        }.bind(this));
-      }, 700)
-    });
+    // this.setState({
+    //   intervalId: setInterval(() => {
+    //     fetch("http://localhost:8000/isCalled", {
+    //     method: "GET",
+    //     token:"TOKEN",
+    //     })
+    //     .then(function (res) {
+    //       this.handleCalledOn();
+    //     }.bind(this));
+    //   }, 700)
+    // });
   },
 
   handleCalledOn: function (res) {
@@ -70,7 +64,7 @@ var HandRaiserView = module.exports = React.createClass({
 
   render: function () {
     console.log("------------------------ class title props -----------------> ");
-    console.dir(this.props.data.selectedClass.ClassTitle);
+    console.log(this.props.data.selectedClass.ClassTitle);
     return (
       <View style={styles.container}>
 

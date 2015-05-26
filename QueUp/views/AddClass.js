@@ -6,6 +6,7 @@ var {
   StyleSheet,
   View,
   TextInput,
+  AsyncStorage,
   TouchableHighlight
 } = React;
 
@@ -19,14 +20,22 @@ var AddClassView = module.exports = React.createClass({
 
   handleJoin: function () {
     console.log("Making Request.");
-    fetch("http://localhost:3000/checkCode", {
-      method: "POST",
-      token:"TOKEN",
-      body: this.state.code
-    })
-    .then(function (res) {
-      console.log(res);
-    });
+    AsyncStorage.getItem("FBToken")
+      .then((user) => {
+        console.log(user);
+        fetch("http://10.6.31.110:8000/api/students/joinClass", {
+          method: "POST",
+          headers: {
+            user_role: 'student',
+            access_token: user,
+            'Content-Type': "application/json"
+          },
+          body: JSON.stringify(this.state)
+        })
+        .then(function (res) {
+          console.log(res);
+        });
+      });
   },
 
 
