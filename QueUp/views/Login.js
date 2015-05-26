@@ -51,7 +51,7 @@ var LoginView = module.exports = React.createClass({
         this.setState({fbToken: error});
       } else {
         console.log('----------------- initial response from facebook ----------');
-        console.dir(info);
+        console.log(info);
         self.setState({
           fbToken: info.token,
           fbID: info.userId
@@ -76,7 +76,7 @@ var LoginView = module.exports = React.createClass({
               '&fields=name,email,picture&format=json';
         fetch(url).then((response)  => response.json()).then((JSONres) => {
           console.log("------ RECIEVED RESPONSE FROM FACEBOOK ------------");
-          console.dir(JSONres);
+          console.log(JSONres);
           resolve(JSONres);
           });
       });
@@ -108,14 +108,6 @@ render: function () {
 
        <View style={styles.mainContainer}>
 
-        <Video source={{uri: "loginBackGround"}}
-
-               style={styles.background}
-               resizeMode="cover" 
-               rate={1} 
-               volume={1} 
-               muted={true}
-               repeat={true} />
 
 
          <Image
@@ -144,7 +136,7 @@ var styles = StyleSheet.create({
     marginTop: 0,
     flexDirection: 'column',
     justifyContent: 'center',
-    backgroundColor: 'transparent'
+    backgroundColor: 'black'
   },
 
 

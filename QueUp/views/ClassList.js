@@ -72,9 +72,9 @@ var ClassListView = module.exports = React.createClass({
   componentDidMount: function() {
       var self = this;
       fakeJSON = fakeJSON;
-      console.dir(fakeJSON);
+      console.log(fakeJSON);
       self.setState({ dataSource: self.state.dataSource.cloneWithRows(fakeJSON) }, function(){
-              console.dir(self.state.dataSource);
+              console.log(self.state.dataSource);
       });
   },
 

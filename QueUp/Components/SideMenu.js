@@ -50,7 +50,7 @@ module.exports = React.createClass({
         <ScrollView style={{paddingTop:15}}>
             <TouchableOpacity underlayColor="#ffffff" onPress={()=>{ 
                 console.log('---- pressed going to my classes view ----');
-                console.dir (global.router);
+                console.log (global.router);
                 global.router({
                     name: 'My Classes',
                     component: ClassListView,

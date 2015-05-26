@@ -70,7 +70,7 @@ var HandRaiserView = module.exports = React.createClass({
 
   render: function () {
     console.log("------------------------ class title props -----------------> ");
-    console.dir(this.props.data.selectedClass.ClassTitle);
+    console.log(this.props.data.selectedClass.ClassTitle);
     return (
       <View style={styles.container}>
 
