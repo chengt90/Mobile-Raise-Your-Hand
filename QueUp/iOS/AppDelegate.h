@@ -13,4 +13,8 @@
 
 @property (nonatomic, strong) UIWindow *window;
 
+- (void)goNativeStoryboard;
+- (void)goToReactNative;
+
+
 @end

@@ -12,7 +12,14 @@
 
 #import "RCTRootView.h"
 
+@interface AppDelegate ()
+
+@property (nonatomic, strong) UIViewController *reactNativeViewController;
+
+@end
+
 @implementation AppDelegate
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -51,16 +58,51 @@
                                                    launchOptions:launchOptions];
 
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+  
+  /*
   UIViewController *rootViewController = [[UIViewController alloc] init];
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
   return YES;
+  */
+  
+  // UIViewController *rootViewController = [[UIViewController alloc] init];
+  self.reactNativeViewController = [[UIViewController alloc] init];
+  self.reactNativeViewController.view = rootView;
+  
+  //rootViewController.view = rootView;
+  self.window.rootViewController = self.reactNativeViewController;
+  [self.window makeKeyAndVisible];
+  return YES;
+  
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
   [FBSDKAppEvents activateApp];
 }
+
+- (void)goToReactNative {
+  
+  NSLog(@"***** call pressed *****");
+  NSLog(@"***** call pressed *****");
+  
+  [self.window.rootViewController dismissViewControllerAnimated:TRUE completion:nil];
+  
+}
+
+- (void)goNativeStoryboard {
+  NSLog(@"***** call pressed *****");
+  NSLog(@"***** call pressed *****");
+  
+  UIViewController *vc = [UIStoryboard storyboardWithName:@"Mic" bundle:nil].instantiateInitialViewController;
+  
+  [self.window.rootViewController presentViewController:vc animated:true completion:nil];
+  
+}
+
+
+
 
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url

@@ -15,7 +15,7 @@ var styles = StyleSheet.create({
         flexDirection: 'row',
         borderBottomColor : '#ffffff',
         borderBottomWidth : .5,
-        backgroundColor: '#18CFAA',
+        backgroundColor: '#6EC749',
     },
     ClassList : {
     	flex : 1,

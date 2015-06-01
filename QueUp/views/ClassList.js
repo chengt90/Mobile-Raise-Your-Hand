@@ -39,7 +39,7 @@ var ClassListView = module.exports = React.createClass({
     var self = this;
     AsyncStorage.getItem("FBToken")
       .then((user) => {
-        fetch("http://10.6.31.151:8000/api/students/classList", {
+        fetch("http://queup.io/api/students/classList", {
           method: "GET",
           headers: {
             user_role: 'student',

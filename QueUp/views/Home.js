@@ -55,8 +55,9 @@ module.exports = React.createClass({
   },
 
   render: function() {
+
     return (
-    <MainSideMenu menu={<SideMenuView />} ref="mainSideMenu">
+    <MainSideMenu menu={<SideMenuView currentUser={this.props.currentUser}/>} ref="mainSideMenu">
 
           <Router ref="router"
             firstRoute = { 
@@ -83,6 +84,6 @@ var styles = StyleSheet.create({
   },
   header: {
     height: 60,
-    backgroundColor: '#18CFAA'
+    backgroundColor: '#6EC749'
   }
 });

@@ -14,7 +14,7 @@ var HeaderLogo = module.exports = React.createClass({
     return (
       <Image
         style={styles.icon}
-        source={require('image!logoQueUp')}/>    
+        source={require('image!QueUpLogo')}/>    
       )
   }
 });

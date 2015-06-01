@@ -116,7 +116,7 @@ render: function () {
        <View style={styles.mainContainer}>
          <Image
               style={styles.logo}
-              source={require('image!logoQueUp')}/>  
+              source={require('image!QueUpLogo')}/>  
 
         <TouchableHighlight
           style={styles.button}
