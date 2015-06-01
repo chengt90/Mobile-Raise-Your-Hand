@@ -21,12 +21,11 @@ var AddClassView = module.exports = React.createClass({
 
   handleJoin: function (data) {
     console.log("Making Request.");
-
     var self = this;
     AsyncStorage.getItem("FBToken")
       .then((user) => {
         console.log(user);
-        fetch("http://queup.io/api/students/joinClass", {
+        fetch("http://10.6.31.151:8000/api/students/joinClass", {
           method: "POST",
           headers: {
             user_role: 'student',
@@ -36,7 +35,6 @@ var AddClassView = module.exports = React.createClass({
           body: JSON.stringify(data)
         })
         .then(function (res) {
-          console.log('-------------------- data back from server -------------')
           console.log(res._bodyText);
           self.setState({
             serverResponse: res._bodyText

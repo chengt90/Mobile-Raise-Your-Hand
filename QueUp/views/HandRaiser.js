@@ -18,7 +18,7 @@ var {
   AsyncStorage
 } = React;
 
-var sockets = new SocketIO("queup.io", {});
+var sockets = new SocketIO("10.6.31.151:8000", {});
 sockets.connect();
 sockets.on('connect', () => {
   sockets.on('queued', () => {
