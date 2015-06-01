@@ -29,6 +29,7 @@ var reactTimerMixin = require('react-timer-mixin');
 var AnimationExperimental = require('AnimationExperimental');
 
 
+var UserBadge = require('./UserBadgeSide.js');
 
 
 module.exports = React.createClass({
@@ -39,18 +40,25 @@ module.exports = React.createClass({
   componentWillReceiveProps:function(){
   },
 
-
-
-
   render: function() {
+
+        console.log('-------------------=================-----------');
+    console.log(this.props.currentUser);
     return (
       <View>
-  
+
+         <View style={styles.menuBadge}>
+            <UserBadge currentUser = {this.props.currentUser} />
+        </View>
+
+
+
         <View style={styles.menuCol} ref="menuContent">
+
         <ScrollView style={{paddingTop:15}}>
+
+          
             <TouchableOpacity underlayColor="#ffffff" onPress={()=>{ 
-                console.log('---- pressed going to my classes view ----');
-                console.dir (global.router);
                 global.router({
                     name: 'My Classes',
                     component: ClassListView,
@@ -64,29 +72,22 @@ module.exports = React.createClass({
                 </View>
             </TouchableOpacity>
 
-
          <TouchableOpacity underlayColor="#FFD200" onPress={()=>{ 
-              global.router({
-                  name: 'Add Classes',
-                  component: AddClassView,
-              });
-              
-              this.setTimeout(()=>{
-                  global.mainSideMenu.closeMenu();
-              }, 20);
+            global.router({
+                name: 'Add Classes',
+                component: AddClassView,
+            });
+            
+            this.setTimeout(()=>{
+                global.mainSideMenu.closeMenu();
+            }, 20);
 
-              }}>
-
-
-                <View style={styles.SideMenuItem}>
-                  <Text style={styles.ItemText}>ADD CLASSES  </Text>
-                </View>
-
-
+            }}>
+            <View style={styles.SideMenuItem}>
+              <Text style={styles.ItemText}>ADD CLASSES  </Text>
+            </View>
           </TouchableOpacity>
-
           </ScrollView>
-
         </View>
       </View>
     );
@@ -96,17 +97,32 @@ module.exports = React.createClass({
 
 var styles = StyleSheet.create({
 
+
+  menuBadge: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: DeviceWidth,
+    paddingTop: 80,
+    paddingLeft: 20,
+    height: 264,
+    backgroundColor: '#363636',
+    marginLeft: -50
+  },
   menuCol: {
-    top : 0,
+    top : 220,
     height: DeviceHeight + 110,
     width: DeviceWidth* 2,
-    backgroundColor: '#FFD200',
+    backgroundColor: '#363636',
+    borderTopColor: 'white',
+    borderTopWidth: .5
 
   },
 
   SideMenuItem: {
-    top: DeviceWidth/1.5,
-    marginLeft: -10,
+    top: DeviceWidth/5,
+    left: 0,
+    marginLeft: 0,
     flexDirection: 'row',
     alignItems: 'flex-start',
     justifyContent: 'center',
@@ -123,7 +139,8 @@ var styles = StyleSheet.create({
 
 
  ItemText: {
-   marginLeft: -40,
+  left: 0,
+   marginLeft: 0,
    justifyContent: 'center',
    color: 'white',
    fontWeight: '800'

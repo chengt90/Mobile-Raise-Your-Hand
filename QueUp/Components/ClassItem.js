@@ -15,7 +15,7 @@ var styles = StyleSheet.create({
         flexDirection: 'row',
         borderBottomColor : '#ffffff',
         borderBottomWidth : .5,
-        backgroundColor: '#18CFAA',
+        backgroundColor: '#6EC749',
     },
     ClassList : {
     	flex : 1,
@@ -35,8 +35,6 @@ var styles = StyleSheet.create({
 module.exports = React.createClass({
 	render() {
 		var item = this.props.item;
-        console.log("------------------------------------------------");
-        console.dir(item);
         //onPress={() => ListView.addScore(item._id)}
 
 		return (
@@ -44,7 +42,7 @@ module.exports = React.createClass({
 			<TouchableOpacity onPress={() => this.props.onSelect(item)}>
 				<View style={styles.container}>			
 					<View style={styles.ClassList}>
-						<Text style={styles.ClassTitle} numberOfLines={2}>{item.ClassTitle}</Text>
+						<Text style={styles.ClassTitle} numberOfLines={2}>{item.name}</Text>
 					</View>					
 				</View>
 			</TouchableOpacity>

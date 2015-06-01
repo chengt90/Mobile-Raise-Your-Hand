@@ -11,7 +11,8 @@ var {
 
 var UserBadge = React.createClass({
   render: function(){
-console.dir(this.props.currentUser);
+      console.log('######################################=====================');
+
     return (
       <View style={styles.container}>
         <Image style={styles.userAvatar} source={{uri: this.props.currentUser.currentUserPicture}}/>
@@ -23,7 +24,7 @@ console.dir(this.props.currentUser);
 
 var styles = StyleSheet.create({
   container: {
-    backgroundColor: '#18CFAA',
+    backgroundColor: '#6EC749',
     paddingBottom: 10
   },
   name: {

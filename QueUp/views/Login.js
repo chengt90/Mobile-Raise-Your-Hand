@@ -10,6 +10,8 @@ var {
   TouchableHighlight
 } = React;
 
+var Utils = require('../utils/utils.js');
+
 var FacebookLoginManager = require('NativeModules').FacebookLoginManager;
 
 var SideMenuIconComponent = require('../Components/SideMenuButton.js');
@@ -32,31 +34,42 @@ var LoginView = module.exports = React.createClass({
   },
 
   componentDidMount: function() {
+
+    Utils.getAsyncStats()
+      .then((item) => {
+        if(item === null) {
+          var freshStats = {
+            classes: 0,
+            handsRaised: 0,
+            calledsOn: 0
+          };
+          Utils.setAsyncStats(JSON.stringify(freshStats));
+        }
+      });
+
     AsyncStorage.getItem("QueUpCurrentUser")
       .then((userObj)=>{
         if(userObj !== null) {
             // send user to home with a currentUser prop 
-            this.props.navigator.replace({ id: 'home',  
-                                             currentUser: userObj 
-                                           });
-                                          }
+          this.props.navigator.replace({ 
+            id: 'home',  
+            currentUser: userObj 
+          });
+        }
       });
   },
 
   login: function() {
     var self = this;
-    console.log("------------------- facebook login pressed ------------------");
     FacebookLoginManager.newSession((error, info) => {
       if (error) {
         this.setState({fbToken: error});
       } else {
-        console.log('----------------- initial response from facebook ----------');
-        console.dir(info);
         self.setState({
           fbToken: info.token,
           fbID: info.userId
         }, function(){
-          console.log("------- token set , and save it with AsyncStorage---------");
+          AsyncStorage.setItem("FBToken", self.state.fbToken, () => {});
           self.saveUserToSession(this.state.fbID, this.state.fbToken).then(function(userObj){
           self.props.navigator.replace({ id: 'home',  
                                              currentUser: userObj 
@@ -70,13 +83,10 @@ var LoginView = module.exports = React.createClass({
 
   fetchUserDataFromFB: function(fbId, fbToken){
     //http://graph.facebook.com/[FBID]/picture?type=large
-    console.log('-------- facebook fetch called --------');
       return new Promise(function(resolve, reject) {
         var url = `https://graph.facebook.com/v2.3/${fbId}?access_token=${fbToken}` +
               '&fields=name,email,picture&format=json';
         fetch(url).then((response)  => response.json()).then((JSONres) => {
-          console.log("------ RECIEVED RESPONSE FROM FACEBOOK ------------");
-          console.dir(JSONres);
           resolve(JSONres);
           });
       });
@@ -84,9 +94,7 @@ var LoginView = module.exports = React.createClass({
 
   saveUserToSession: function(fbId, fbToken){
     var self = this;
-    console.log('----- going to ask fb for user -----');
     return new Promise(function(resolve, reject) {
-      console.log('----- going to ask fb for user -----');
         self.fetchUserDataFromFB(fbId, fbToken).then(function(JSONres){
             var userObj = JSON.stringify(JSONres);
             AsyncStorage.setItem('QueUpCurrentUser', userObj, (error) => {
@@ -105,22 +113,10 @@ var LoginView = module.exports = React.createClass({
 render: function () {
 
     return(
-
        <View style={styles.mainContainer}>
-
-        <Video source={{uri: "loginBackGround"}}
-
-               style={styles.background}
-               resizeMode="cover" 
-               rate={1} 
-               volume={1} 
-               muted={true}
-               repeat={true} />
-
-
          <Image
               style={styles.logo}
-              source={require('image!logoQueUp')}/>  
+              source={require('image!QueUpLogo')}/>  
 
         <TouchableHighlight
           style={styles.button}
@@ -144,10 +140,8 @@ var styles = StyleSheet.create({
     marginTop: 0,
     flexDirection: 'column',
     justifyContent: 'center',
-    backgroundColor: 'transparent'
+    backgroundColor: 'black'
   },
-
-
 
   background: {
     position: 'absolute',
