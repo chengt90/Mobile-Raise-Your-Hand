@@ -67,7 +67,6 @@ var xLabels = ['0','1','2','3','4'];
 //----------------------
 module.exports = React.createClass({
 
-  mixins: [tweenState.Mixin],
 
   getInitialState: function () {
     return {
@@ -108,8 +107,7 @@ module.exports = React.createClass({
       <View style={styles.container}>
         <ContributionCount currentUser = {this.state} />
         <View style={styles.dashBottom} >
-
-   
+ 
 
         <RNChart style={styles.chart}
                     chartData={chartData}

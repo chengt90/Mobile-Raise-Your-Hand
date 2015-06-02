@@ -29,6 +29,12 @@ sockets.on('connect', () => {
   });
 });
 
+//--------- Brige to native UIViewController , for webRTC (test) ------------
+var NativeViewBridge = require('NativeModules').NativeViewBridge;
+console.log('-------- native module mthods ------');
+console.log(NativeViewBridge);
+//--------------------------------------------------------------------------
+
 var HandRaiseButton = module.exports = React.createClass({
 
   getInitialState: function () {
@@ -79,6 +85,8 @@ var HandRaiseButton = module.exports = React.createClass({
   handleHandRaise: function () {
     console.log("Hand Raise Request.");
     var self = this;
+
+    NativeViewBridge.goToNative();
 
     Utils.getAsyncStats()
       .then((item) => {
