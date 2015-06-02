@@ -92,7 +92,7 @@ var ClassListView = module.exports = React.createClass({
 var styles = StyleSheet.create({
   listView: {
     paddingTop: 50,
-    backgroundColor: '#18CFAA'
+    backgroundColor: '#6EC749'
   },
 
   container: {

@@ -24,10 +24,10 @@
 
 -(void)initSinchClient
 {
-  _client = [Sinch clientWithApplicationKey:@"dff6bf13-c7a3-4842-8a68-e4d34ecbc4da"
-                          applicationSecret:@"ERG90kpgEEShyfV08XHSSw=="
+  _client = [Sinch clientWithApplicationKey:@"ccdeeb0b-5733-4bcb-9f44-4b2a7a70dbfe"
+                          applicationSecret:@"7nlXhrVpKkSu71xffH4kAA=="
                             environmentHost:@"sandbox.sinch.com"
-                                     userId:@"phonecaller"];
+                                     userId:@"user3"];
   _client.callClient.delegate = self;
   [_client setSupportCalling:YES];
   [_client start];
@@ -51,16 +51,17 @@
   
   NSLog(@"***** trying to call *****");
   
-  NSLog(@"***** in here *****");
+  NSLog(@"***** in hedsdsdre *****");
   
-  _call = [_client.callClient callUserWithId:@"<test>"];
+  id<SINCallClient> callClient = [_client callClient];
+//  id<SINCall>  / /////call = [callClient callUserWithId:@"<user1>"];
   
+//  
+//          _call = [[_client callClient] callPhoneNumber:@"13016559705"];
   
-  //        _call = [[_client callClient] callPhoneNumber:phoneNumber.text];
-  
-  //         _call = [[_client callClient] callUserWithId:@"<test>"];
+//           _call = [[_client callClient] callUserWithId:@"<user1>"];
   //
-  //        [callButton setTitle:@"Hangup" forState:UIControlStateNormal];
+//          [callButton setTitle:@"Hangup" forState:UIControlStateNormal];
   
 }
 
