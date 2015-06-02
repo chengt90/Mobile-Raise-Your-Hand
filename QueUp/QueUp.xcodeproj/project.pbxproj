@@ -48,7 +48,6 @@
 		8B749EAE1B1BA10700D360EF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B749EAD1B1BA10700D360EF /* Security.framework */; };
 		8B749EB01B1BA1DA00D360EF /* Mic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B749EAF1B1BA1DA00D360EF /* Mic.storyboard */; };
 		8B749EB61B1BA31100D360EF /* MicViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B749EB51B1BA31100D360EF /* MicViewViewController.m */; };
-		8B749EB91B1BA70C00D360EF /* NativeViewBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B749EB81B1BA70C00D360EF /* NativeViewBridge.m */; };
 		8B749EBC1B1BAA8400D360EF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B749EBB1B1BAA8400D360EF /* ViewController.m */; };
 		8B749EC51B1BBEF700D360EF /* libRNChart.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B749EC41B1BBEE700D360EF /* libRNChart.a */; };
 		8B8D522E1B10324F00157C20 /* libReactNativeIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B8D522D1B10322E00157C20 /* libReactNativeIcons.a */; };
@@ -71,6 +70,7 @@
 		8BCDDF0E1B0FB99C00A78050 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCDDF081B0FB99C00A78050 /* Bolts.framework */; };
 		8BCDDF101B0FB99C00A78050 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCDDF0A1B0FB99C00A78050 /* FBSDKCoreKit.framework */; };
 		8BCDDF111B0FB99C00A78050 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCDDF0B1B0FB99C00A78050 /* FBSDKLoginKit.framework */; };
+		8BDCF3991B1D2F4C0053E781 /* NativeViewBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDCF3981B1D2F4C0053E781 /* NativeViewBridge.m */; };
 		8BF024E31B12AF41007D7C7A /* libRCTAnimationExperimental.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF024D81B12AE9C007D7C7A /* libRCTAnimationExperimental.a */; };
 /* End PBXBuildFile section */
 
@@ -239,7 +239,6 @@
 		8B749EB41B1BA31100D360EF /* MicViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MicViewViewController.h; path = iOS/MicViewViewController.h; sourceTree = "<group>"; };
 		8B749EB51B1BA31100D360EF /* MicViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MicViewViewController.m; path = iOS/MicViewViewController.m; sourceTree = "<group>"; };
 		8B749EB71B1BA70C00D360EF /* NativeViewBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NativeViewBridge.h; path = iOS/NativeViewBridge.h; sourceTree = "<group>"; };
-		8B749EB81B1BA70C00D360EF /* NativeViewBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NativeViewBridge.m; path = iOS/NativeViewBridge.m; sourceTree = "<group>"; };
 		8B749EBA1B1BAA8400D360EF /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = iOS/ViewController.h; sourceTree = "<group>"; };
 		8B749EBB1B1BAA8400D360EF /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = iOS/ViewController.m; sourceTree = "<group>"; };
 		8B749EBF1B1BBEE700D360EF /* RNChart.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNChart.xcodeproj; path = "node_modules/react-native-chart/RNChart.xcodeproj"; sourceTree = "<group>"; };
@@ -267,6 +266,7 @@
 		8BCDDF0B1B0FB99C00A78050 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		8BCDDF0C1B0FB99C00A78050 /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKMessengerShareKit.framework; path = ../../FacebookSDK/FBSDKMessengerShareKit.framework; sourceTree = "<group>"; };
 		8BCDDF0D1B0FB99C00A78050 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		8BDCF3981B1D2F4C0053E781 /* NativeViewBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NativeViewBridge.m; path = iOS/NativeViewBridge.m; sourceTree = "<group>"; };
 		8BF024D11B12AE9C007D7C7A /* RCTAnimationExperimental.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimationExperimental.xcodeproj; path = "node_modules/react-native/Libraries/Animation/RCTAnimationExperimental.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -394,8 +394,8 @@
 		13B07FAE1A68108700A75B9A /* QueUp */ = {
 			isa = PBXGroup;
 			children = (
+				8BDCF3981B1D2F4C0053E781 /* NativeViewBridge.m */,
 				8B749EB71B1BA70C00D360EF /* NativeViewBridge.h */,
-				8B749EB81B1BA70C00D360EF /* NativeViewBridge.m */,
 				8BCDDEFA1B0FB97B00A78050 /* FacebookLoginManager.h */,
 				8BCDDEFB1B0FB97B00A78050 /* FacebookLoginManager.m */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -866,6 +866,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BDCF3991B1D2F4C0053E781 /* NativeViewBridge.m in Sources */,
 				8B749EBC1B1BAA8400D360EF /* ViewController.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				321777351B0EFE8E00FCBBF0 /* SocketFixUTF8.swift in Sources */,
@@ -879,7 +880,6 @@
 				8BCDDEFC1B0FB97B00A78050 /* FacebookLoginManager.m in Sources */,
 				3217773A1B0EFE8E00FCBBF0 /* SocketTypes.swift in Sources */,
 				321777381B0EFE8E00FCBBF0 /* SocketPacket.swift in Sources */,
-				8B749EB91B1BA70C00D360EF /* NativeViewBridge.m in Sources */,
 				321777361B0EFE8E00FCBBF0 /* SocketIOClient.swift in Sources */,
 				321777311B0EFE8E00FCBBF0 /* SocketAnyEvent.swift in Sources */,
 				321777321B0EFE8E00FCBBF0 /* SocketEngine.swift in Sources */,

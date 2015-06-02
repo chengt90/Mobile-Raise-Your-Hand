@@ -21,42 +21,16 @@ NSString * userEmail;
 
 RCT_EXPORT_MODULE();
 
-- (void)goToNative{
-  RCT_EXPORT();
+RCT_EXPORT_METHOD(goToNative){
   AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-  
-  // [[[UIApplication sharedApplication] delegate] goNativeStoryboard];
-  
-  //[appDelegate yourMethod];
-  
   [appDelegate goNativeStoryboard];
-  //    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-
-- (void)addEmail:(NSString *)currentUserEmail {
-  RCT_EXPORT();
-  NSLog(@"*************SAVING EMIAL **********>>>>");
-//  NSArray *parameters = @[playerID];
-//  [self.meteorClient callMethodName:@"updateScore" parameters:parameters responseCallback:^(NSDictionary *response, NSError *error) {
-//    // NSString *message = error[@"error"];
-//    NSLog(@"Error: %@", error);
-//  }];
+RCT_EXPORT_METHOD(addEmail:(NSString *)currentUserEmail){
   userEmail = currentUserEmail;
-  NSLog(@"***********************>>>>");
-
-  NSLog(@"***********************>>>>");
-  NSLog(@"***********************>>>>");
-
   NSLog(@"%@", userEmail);
-
-
-  
 }
 
-
-
-NSString *myGlobalString = @"foo";
 
 
 @end

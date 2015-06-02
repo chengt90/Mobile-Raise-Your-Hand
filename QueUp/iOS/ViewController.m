@@ -26,12 +26,7 @@
 -(void)initSinchClient
 {
   
-  
-  NSLog(@"=========initSinchClient=============initSinchClient===============initSinchClient=========");
-NSLog(@"%@", userEmail);
-  NSLog(@"=========initSinchClient=============initSinchClient===============initSinchClient=========");
-  NSLog(@"=========initSinchClient=============initSinchClient===============initSinchClient=========");
-  
+
   
   _client = [Sinch clientWithApplicationKey:@"dff6bf13-c7a3-4842-8a68-e4d34ecbc4da"
                           applicationSecret:@"ERG90kpgEEShyfV08XHSSw=="
