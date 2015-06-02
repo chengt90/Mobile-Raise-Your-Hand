@@ -156,12 +156,9 @@ var styles = StyleSheet.create({
     width: DeviceWidth
   },
   chart: {
-    position: 'absolute', top: 16, bottom: 4,right: -20,
+    position: 'absolute', top: 16, bottom: 4,right: 6,
     height: DeviceHeight/3,
-    borderWidth: 3,
-    borderColor: '#fff',//'6ECE49',
-    borderRadius: 2,
-    width: DeviceWidth * 1.5
+    width: DeviceWidth * 1.1
   }
 
 });
