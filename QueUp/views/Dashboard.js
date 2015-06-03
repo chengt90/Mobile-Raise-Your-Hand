@@ -28,7 +28,6 @@ var SideMenuIconComponent = require('../Components/SideMenuButton.js');
 var AnimationExperimental = require('AnimationExperimental');
 var Stats = require('../Components/Stats.js');
 
-var UserBadge = require('../Components/UserBadge.js')
 var Utils = require('../utils/utils.js');
 var HeaderLogo = require('../Components/HeaderLogo.js');
 

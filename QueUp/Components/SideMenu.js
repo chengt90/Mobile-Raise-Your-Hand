@@ -41,9 +41,6 @@ module.exports = React.createClass({
   },
 
   render: function() {
-
-        console.log('-------------------=================-----------');
-    console.log(this.props.currentUser);
     return (
       <View>
 
@@ -62,6 +59,9 @@ module.exports = React.createClass({
                 global.router({
                     name: 'My Classes',
                     component: ClassListView,
+                    data: {
+                      currentUser: this.props.currentUser
+                    }
                 });
                 this.setTimeout(()=>{
                   global.mainSideMenu.closeMenu();

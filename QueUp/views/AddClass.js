@@ -25,7 +25,7 @@ var AddClassView = module.exports = React.createClass({
     AsyncStorage.getItem("FBToken")
       .then((user) => {
         console.log(user);
-        fetch("http://queup.io/api/students/joinClass", {
+        fetch(global.SERVER_PATH + "/api/students/joinClass", {
           method: "POST",
           headers: {
             user_role: 'student',
