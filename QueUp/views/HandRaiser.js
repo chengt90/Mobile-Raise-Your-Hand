@@ -18,7 +18,9 @@ var {
   AsyncStorage
 } = React;
 
-var sockets = new SocketIO("10.6.31.151:8000", {});
+console.log(global.SERVER_PATH.slice(7), 'GLOBAL');
+
+var sockets = new SocketIO(global.SERVER_PATH.slice(7), {});
 sockets.connect();
 sockets.on('connect', () => {
   sockets.on('queued', () => {
@@ -28,6 +30,7 @@ sockets.on('connect', () => {
     Utils.calledOn(data[0]);
   });
 });
+var NativeViewBridge = require('NativeModules').NativeViewBridge;
 
 var HandRaiseButton = module.exports = React.createClass({
 
@@ -67,6 +70,7 @@ var HandRaiseButton = module.exports = React.createClass({
     }, () => {
       sockets.emit('studentReceivedCall', data);
     });
+    NativeViewBridge.goToNative();
   },
 
   queued: function () {
@@ -93,7 +97,6 @@ var HandRaiseButton = module.exports = React.createClass({
             this.props.onPress();
           });
       });
-
 
     AsyncStorage.getItem('QueUpCurrentUser').then((user) => {
       var parsedUser = JSON.parse(user);
@@ -163,7 +166,7 @@ var HandRaiserView = module.exports = React.createClass({
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#18CFAA'
+    backgroundColor: '#6EC749'
   },
 
   ButtonContainer: {

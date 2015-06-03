@@ -25,7 +25,7 @@ var AddClassView = module.exports = React.createClass({
     AsyncStorage.getItem("FBToken")
       .then((user) => {
         console.log(user);
-        fetch("http://10.6.31.151:8000/api/students/joinClass", {
+        fetch(global.SERVER_PATH + "/api/students/joinClass", {
           method: "POST",
           headers: {
             user_role: 'student',
@@ -165,12 +165,12 @@ var styles = StyleSheet.create({
 
   buttonText: {
     fontSize: 18,
-    color: '#18CFAA',
+    color: '#6EC749',
   },
 
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: '#18CFAA'
+    backgroundColor: '#6EC749'
   }
 });
