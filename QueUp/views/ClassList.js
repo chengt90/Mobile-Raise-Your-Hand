@@ -39,7 +39,7 @@ var ClassListView = module.exports = React.createClass({
     var self = this;
     AsyncStorage.getItem("FBToken")
       .then((user) => {
-        fetch("http://queup.io/api/students/classList", {
+        fetch(global.SERVER_PATH + "/api/students/classList", {
           method: "GET",
           headers: {
             user_role: 'student',
@@ -59,7 +59,7 @@ var ClassListView = module.exports = React.createClass({
 
   renderListView : function(){
     return(
-      <ListView contentInset={{top: -64}}
+      <ListView
         dataSource={this.state.dataSource}
         renderRow={this.renderRow}
         style={styles.listView}/>
@@ -73,10 +73,11 @@ var ClassListView = module.exports = React.createClass({
              this.props.toRoute({
               name: item.name,
               component: HandRaiserView,
-              data: {selectedClass: item},
+              data: { selectedClass: item },
               titleComponent: HeaderLogo
-            });
-      }} />
+            });}}
+            currentUser={this.props.data.currentUser}
+       />
     );
   },
 
@@ -91,8 +92,7 @@ var ClassListView = module.exports = React.createClass({
 
 var styles = StyleSheet.create({
   listView: {
-    paddingTop: 50,
-    backgroundColor: '#18CFAA'
+    backgroundColor: '#6EC749'
   },
 
   container: {

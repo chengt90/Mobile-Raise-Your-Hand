@@ -28,7 +28,6 @@ var SideMenuIconComponent = require('../Components/SideMenuButton.js');
 var AnimationExperimental = require('AnimationExperimental');
 var Stats = require('../Components/Stats.js');
 
-var UserBadge = require('../Components/UserBadge.js')
 var Utils = require('../utils/utils.js');
 var HeaderLogo = require('../Components/HeaderLogo.js');
 
@@ -58,7 +57,7 @@ var chartData = [
         ]
     }
 ];
-var xLabels = ['0','1','2','3','4'];
+var xLabels = ['','','','','']; // ['0','1','2','3','4'];
 // ------------------- End of dummy data --- ----------------
 
 
@@ -66,7 +65,6 @@ var xLabels = ['0','1','2','3','4'];
 
 //----------------------
 module.exports = React.createClass({
-
 
   getInitialState: function () {
     return {
@@ -107,7 +105,8 @@ module.exports = React.createClass({
       <View style={styles.container}>
         <ContributionCount currentUser = {this.state} />
         <View style={styles.dashBottom} >
- 
+
+   
 
         <RNChart style={styles.chart}
                     chartData={chartData}
@@ -156,11 +155,9 @@ var styles = StyleSheet.create({
     width: DeviceWidth
   },
   chart: {
-    position: 'absolute', top: 16, bottom: 4,right: 0,
-    width: DeviceWidth*1.1,
-    height: DeviceHeight/3
-
-
+    position: 'absolute', top: 16, bottom: 4,right: 6,
+    height: DeviceHeight/3,
+    width: DeviceWidth * 1.1
   }
 
 });

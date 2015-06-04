@@ -10,6 +10,11 @@
 #import "AppDelegate.h"
 #import "NativeViewBridge.h"
 
+#import <RCTBridge.h>
+#import <RCTConvert.h>
+#import "RCTEventDispatcher.h"
+
+
 
 
 @interface ViewController ()
@@ -53,16 +58,10 @@
 
 
 - (IBAction)call:(id)sender {
-  
   NSLog(@"***** trying to call *****");
-  
   NSLog(@"***** in here *****");
-  
-  _call = [_client.callClient callUserWithId:@"<test>"];
-  
-  
+  // _call = [_client.callClient callUserWithId:@"<test>"];
   //        _call = [[_client callClient] callPhoneNumber:phoneNumber.text];
-  
   //         _call = [[_client callClient] callUserWithId:@"<test>"];
   //
   //        [callButton setTitle:@"Hangup" forState:UIControlStateNormal];
@@ -70,24 +69,22 @@
 }
 
 - (IBAction)back:(id)sender {
-  NSLog(@"$$$$$$$$$$$$$$$$$$$$$$$$");
   
   AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-  
   [appDelegate goToReactNative];
+  ///---------------------
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"micEndedNotificaiton"
+                                object:nil];
+  //----------------------
 }
 
 
 
 -(void)client:(id<SINCallClient>)client didReceiveIncomingCall:(id<SINCall>)call
 {
-  
-  NSLog(@"$$$$$$$$$$$$$$$$$$$$$$$$");
-  NSLog(@"$$$$$$$$$$$$$$$$$$$$$$$$");
-  NSLog(@"$$$$$$$$$$$$$$$$$$$$$$$$");
-  NSLog(@"$$$$$$$$$$$$$$$$$$$$$$$$");
-  NSLog(@"$$$$$$$$$$$$$$$$$$$$$$$$");
-  NSLog(@"$$$$$$$$$$$$$$$$$$$$$$$$");
+  NSLog(@"-----------------------------------");
+  NSLog(@"-----------------------------------");
+  NSLog(@"-----------------------------------");
   [call answer];
   
   

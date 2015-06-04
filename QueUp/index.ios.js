@@ -1,11 +1,11 @@
 'use strict';
 
 var React = require('react-native');
+global.SERVER_PATH = "http://queup.io";
 var LoginView = require('./views/Login.js');
 var HomeView = require('./views/Home.js');
 
 var Router = require('react-native-router');
-
 
 
 var {

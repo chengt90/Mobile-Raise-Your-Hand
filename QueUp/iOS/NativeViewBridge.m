@@ -10,6 +10,9 @@
 #import <RCTBridge.h>
 #import <RCTConvert.h>
 #import "NativeViewBridge.h"
+#import "RCTEventDispatcher.h"
+
+
 
 #import "AppDelegate.h"
 
@@ -29,7 +32,34 @@ RCT_EXPORT_METHOD(goToNative){
 RCT_EXPORT_METHOD(addEmail:(NSString *)currentUserEmail){
   userEmail = currentUserEmail;
   NSLog(@"%@", userEmail);
+  
+  //================ Adding observer to listen for the "micEndedNotificaiton" =======
+  //================ we should remove this somewhere , dealloc =======
+
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(micEndedEvent:)
+                                               name:@"micEndedNotificaiton"
+                                             object:nil];
+
+  
 }
+
+
+
+- (void)micEndedEvent:(NSNotification *)notification {
+  
+  NSLog(@"***** mic end event pressed *****");
+  NSLog(@"***** mic end event pressed *****");
+//  NSString *eventName = notification.userInfo[@"name"];
+//  [self.bridge.eventDispatcher sendAppEventWithName:@"EventReminder"
+//                                               body:@{@"name": eventName}];
+//  
+  [self.bridge.eventDispatcher sendDeviceEventWithName:@"NewMicEvent"
+                                              body:@{@"NewMicEvent":@"NewMicEvent"}];
+}
+
+
+
 
 
 
