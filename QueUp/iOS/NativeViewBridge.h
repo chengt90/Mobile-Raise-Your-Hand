@@ -12,4 +12,7 @@
 
 @interface NativeViewBridge : NSObject <RCTBridgeModule>
 
+
+extern NSString * userEmail;
+
 @end

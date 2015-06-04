@@ -13,6 +13,8 @@
 
 #import "AppDelegate.h"
 
+NSString * userEmail;
+
 @implementation NativeViewBridge
 
 @synthesize bridge = _bridge;
@@ -31,6 +33,30 @@ RCT_EXPORT_MODULE();
   //    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+
+- (void)addEmail:(NSString *)currentUserEmail {
+  RCT_EXPORT();
+  NSLog(@"*************SAVING EMIAL **********>>>>");
+//  NSArray *parameters = @[playerID];
+//  [self.meteorClient callMethodName:@"updateScore" parameters:parameters responseCallback:^(NSDictionary *response, NSError *error) {
+//    // NSString *message = error[@"error"];
+//    NSLog(@"Error: %@", error);
+//  }];
+  userEmail = currentUserEmail;
+  NSLog(@"***********************>>>>");
+
+  NSLog(@"***********************>>>>");
+  NSLog(@"***********************>>>>");
+
+  NSLog(@"%@", userEmail);
+
+
+  
+}
+
+
+
+NSString *myGlobalString = @"foo";
 
 
 @end
