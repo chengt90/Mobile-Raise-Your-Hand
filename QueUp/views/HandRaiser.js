@@ -102,7 +102,9 @@ var HandRaiseButton = module.exports = React.createClass({
       var parsedUser = JSON.parse(user);
       sockets.emit('handraise', {
         classID: this.props.data.selectedClass.classID,
-        email: parsedUser.email
+        email: parsedUser.email,
+        name: parsedUser.name,
+        fbPicture: parsedUser.picture.data.url
       });
     });
 
