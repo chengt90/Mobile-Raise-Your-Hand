@@ -1,12 +1,10 @@
-# Q-Up Mobile Client ( Build with React Native & Objectice C ) 
-**Cross platform mic system for professors to more effectively engage with students in lecture halls.**
-
-** Native mobible client is build with React Native + Objective C.
-
+# Q-Up Mobile Client (Build with React Native & Objective-C) 
+![Q-Up](http://recordit.co/TTD5pckVWt.gif)
+<br>
+**http://q-up.io/**
+<br>
 Q-Up is a web and mobile application that allows students to ask questions on their phone and have their questions broadcasted throughout the entire lecture hall from the professor's speakers.
 Web client (AngularJS) and backend code (Node.JS + Express), please see: https://github.com/Bombastic-Curtain/Raise-Your-Hand
-
-To visit the web app, please go to http://q-up.io/
 
 ## How it works
 When students have a question, they can simply tap on a virtual hand in the phone app and wait in the queue until the professor is ready to call on the them. This helps the professor easily keep track of who to call on next. 
@@ -14,10 +12,6 @@ When students have a question, they can simply tap on a virtual hand in the phon
 When the professor calls on the student, the student may talk on their phone and have their question broadcast throughout the lecture hall from the professor’s speakers enhancing the overall lecture experience.
 
 In the below GIF, you will see our app in action. The left side of the screen represents the web app, for the professor, at http://q-up.io/ and on the right side represents the student mobile app.
-
-<br><br>
-![Q-Up](http://recordit.co/TTD5pckVWt.gif)
-<br><br>
 
 **Professor's Experience**
 <ol>
