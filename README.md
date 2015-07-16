@@ -1,4 +1,4 @@
-# Q-Up
+# Q-Up Mobile Client ( Build with React Native & Objectice C ) 
 **Cross platform mic system for professors to more effectively engage with students in lecture halls.**
 
 ** Native mobible client is build with React Native + Objective C.
